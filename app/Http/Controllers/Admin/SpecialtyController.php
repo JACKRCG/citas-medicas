@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 //creando una nueva directiva
 use App\Specialty;
+
+use App\Http\Controllers\Controller;
 
 class SpecialtyController extends Controller
 {
