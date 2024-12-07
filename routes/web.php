@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes ------ Definición de rutas
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//indica el redireccionamiento o ubicación de la ruta inicial al cargar el sitio web
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login'); //view('welcome');
 });
 
 Auth::routes();
@@ -34,6 +34,12 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function () {
     Route::resource('doctors', 'DoctorController');
     // rutas de Pacientes
     Route::resource('patients', 'PatientController');
+
+    //Gráficos o Charts (Lineal)
+    Route::get('/charts/appointments/line', 'ChartController@appointments');
+    //Gráficos o Charts (Barras o Columnas)
+    Route::get('/charts/doctors/column', 'ChartController@doctors');
+    Route::get('/charts/doctors/column/data', 'ChartController@doctorsJson');
 });
 
 
@@ -43,3 +49,29 @@ Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {
     Route::post('/schedule', 'ScheduleController@store');
     
 });
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/appointments/create', 'AppointmentController@create');
+    Route::post('/appointments', 'AppointmentController@store');
+
+    /*
+    /patient/appointments
+    */
+
+    Route::get('/appointments', 'AppointmentController@index');
+    Route::get('/appointments/{appointment}', 'AppointmentController@show');
+    //para cancelar una cita despues de ser aprobada
+    Route::get('/appointments/{appointment}/cancel', 'AppointmentController@ShowCancelForm');
+    //para cancelar una cita antes de ser aprobada
+    Route::post('/appointments/{appointment}/cancel', 'AppointmentController@postCancel');
+    //para confirmar una cita
+    Route::post('/appointments/{appointment}/confirm', 'AppointmentController@postConfirm');
+    
+    //JSON
+    Route::get('/specialties/{specialty}/doctors', 'Api\SpecialtyController@doctors');
+    Route::get('/schedule/hours', 'Api\ScheduleController@hours');
+
+});
+
+

@@ -1,7 +1,11 @@
 @extends('layouts.panel')
 
-@section('content')
+@section('styles')
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+@endsection
 
+@section('content')
 <div class="card shadow">
 	      <div class="card-header border-0">
 	        <div class="row align-items-center">
@@ -33,13 +37,21 @@
 	      		<input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Ingrese el nombre del médico" required>
 	      	</div>	
 	      	<div class="form-row">
-	      		<div class="form-group col-md-7">
+	      		<div class="form-group col-md-4">
 		      		<label for="email">E-mail</label>
 		      		<input type="text" name="email" class="form-control" value="{{ old('email') }}" placeholder="Ingrese el e-mail del doctor" class="form-control">
 		      	</div>	 
-		      	<div class="form-group col-md-5">
+		      	<div class="form-group col-md-4">
 		      		<label for="dni">DNI</label>
 		      		<input type="text" name="dni" class="form-control" value="{{ old('dni') }}" placeholder="Ingrese el DNI del doctor" class="form-control">
+		      	</div>	
+		      	<div class="form-group col-md-4">
+		      		<label for="specialties">Especialidades</label>
+		      		<select name="specialties[]" id="specialties" class="form-control selectpicker" data-style="btn-primary" multiple title="Seleccione una o varias">
+		      			@foreach ($specialties as $specialty)
+		      				<option value="{{ $specialty->id }}">{{ $specialty->name }}</option>
+		      			@endforeach
+		      		</select>
 		      	</div>	
 	      	</div>
 	      	<div class="form-row">
@@ -65,5 +77,9 @@
 	      </form>
 	      </div>
 	    </div>
+@endsection
 
+@section('scripts')
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 @endsection

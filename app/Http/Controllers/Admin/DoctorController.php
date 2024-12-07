@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Specialty;
 
 use App\Http\Controllers\Controller;
 
@@ -28,8 +29,9 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
-        return view('doctors.create');
+        //pasamos las especialidades a la vista doctor.create
+        $specialties = Specialty::all();
+        return view('doctors.create', compact('specialties'));
     }
 
     /**
@@ -40,6 +42,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         //validar la información
         $rules = [
             'name' => 'required|min:3',
@@ -50,13 +53,15 @@ class DoctorController extends Controller
         ];
         $this->validate($request, $rules);
             //$request->all(); //esto trae todos los campos del formulario incluyendo los que se creen en el lado del cliente.
-        User::create(
+        $user = User::create(
             $request->only('name','email','dni','address','phone')
             + [
                 'role' => 'doctor',
                 'password' => bcrypt($request->input('password'))
             ]
         );
+
+        $user->specialties()->attach($request->input('specialties'));
 
         $notification = 'El médico se ha registrado correctamente';
         return redirect('/doctors')->with(compact('notification'));
@@ -82,7 +87,9 @@ class DoctorController extends Controller
     public function edit($id)
     {
         $doctor = User::doctors()->findOrFail($id);
-        return view('doctors.edit', compact('doctor'));
+        $specialties = Specialty::all();
+        $specialty_ids = $doctor->specialties()->pluck('specialties.id');
+        return view('doctors.edit', compact('doctor', 'specialties', 'specialty_ids'));
     }
 
     /**
@@ -114,6 +121,7 @@ class DoctorController extends Controller
         $user->fill($data);
         $user->save();//UPDATE -- para actualizar la información en la base de datos
 
+        $user->specialties()->sync($request->input('specialties'));
 
         $notification = 'La información del médico se ha actualizado correctamente';
         return redirect('/doctors')->with(compact('notification'));

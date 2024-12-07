@@ -7,55 +7,12 @@
   @endif
 </h6>
 <ul class="navbar-nav">
-  @if (auth()->user()->role == 'admin')
-  <li class="nav-item">
-    <a class="nav-link" href="/home">
-      <i class="ni ni-tv-2 text-primary"></i> Dashboard
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/specialties">
-      <i class="ni ni-planet text-blue"></i> Especialidades
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/doctors">
-      <i class="ni ni-single-02 text-orange"></i> Médicos
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/patients">
-      <i class="ni ni-satisfied text-info"></i> Pacientes
-    </a>
-  </li>
-  @elseif (auth()->user()->role == 'doctor')
-  <li class="nav-item">
-    <a class="nav-link" href="/schedule">
-      <i class="ni ni-calendar-grid-58 text-danger"></i> Gestionar horario
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/specialties">
-      <i class="ni ni-time-alarm text-primary"></i> Mis Citas
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/patients">
-      <i class="ni ni-satisfied text-info"></i> Mis pacientes
-    </a>
-  </li>
-  @else {{-- patient --}}
-  <li class="nav-item">
-    <a class="nav-link" href="/home">
-      <i class="ni ni-send text-danger"></i> Reservar Cita
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/specialties">
-      <i class="ni ni-time-alarm text-primary"></i> Mis Citas
-    </a>
-  </li>
-  @endif
+  <!--Se va a buscar el archivo de acuerdo el rol, para poder mostrar los botones pertinentes
+   dependiendo del rol, en este caso busca en la carpeta panel/menú/ARCHIVO -->
+  @include(
+    'includes.panel.menu.' . auth()->user()->role
+  )
+
   <li class="nav-item">
     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('formLogout').submit();">
       <i class="ni ni-key-25"></i> Cerrar Sesión
@@ -73,11 +30,13 @@
 <!-- Navigation -->
 <ul class="navbar-nav mb-md-3">
   <li class="nav-item">
-    <a class="nav-link" href="#"></i> Frecuencia de Citas
+    <a class="nav-link" href="{{ url('/charts/appointments/line') }}">
+      <i class="ni ni-sound-wave text-yellow"></i> Frecuencia de Citas
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#"></i> Médicos más activos
+    <a class="nav-link" href="{{ url('/charts/doctors/column') }}">
+      <i class="ni ni-chart-bar-32 text-orange"></i> Médicos más activos
     </a>
   </li>
 </ul>

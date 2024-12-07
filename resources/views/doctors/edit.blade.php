@@ -1,7 +1,11 @@
 @extends('layouts.panel')
 
-@section('content')
+@section('styles')
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+@endsection
 
+@section('content')
 <div class="card shadow">
 	      <div class="card-header border-0">
 	        <div class="row align-items-center">
@@ -44,14 +48,22 @@
 		      	</div>	
 	      	</div>
 	      	<div class="form-row">
-		      	<div class="form-group col-md-7">
+		      	<div class="form-group col-md-4">
 		      		<label for="address">Dirección</label>
 		      		<input type="text" name="address" class="form-control" value="{{ old('address', $doctor->address) }}" placeholder="Ingrese la dirección del doctor" class="form-control">
 		      	</div>	
-		      	<div class="form-group col-md-5">
+		      	<div class="form-group col-md-4">
 		      		<label for="phone">Teléfono / móvil</label>
 		      		<input type="text" name="phone" class="form-control" value="{{ old('phone', $doctor->phone) }}" placeholder="Ingrese el teléfono del doctor" class="form-control">
-		      	</div>	
+		      	</div>
+		      	<div class="form-group col-md-4">
+		      		<label for="specialties">Especialidades</label>
+		      		<select name="specialties[]" id="specialties" class="form-control selectpicker" data-style="btn-primary" multiple title="Seleccione una o varias">
+		      			@foreach ($specialties as $specialty)
+		      				<option value="{{ $specialty->id }}">{{ $specialty->name }}</option>
+		      			@endforeach
+		      		</select>
+		      	</div>		
 	      	</div>
 	      	<div class="form-group">
 	      		<label for="password">Contraseña</label>
@@ -67,5 +79,16 @@
 	      </form>
 	      </div>
 	    </div>
+@endsection
+
+@section('scripts')
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script>
+	//<!--para poder cargar los datos de especialidades seleccionadas usamos javascript-->
+	$(document).ready(() => {
+		$('#specialties').selectpicker('val', @json($specialty_ids));
+	});
+</script>
 
 @endsection

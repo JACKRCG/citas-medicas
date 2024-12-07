@@ -16,6 +16,7 @@
   <link href="{{ asset('vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <!-- Argon CSS -->
   <link href="{{ asset('css/argon.css?v=1.0.0') }}" rel="stylesheet">
+  @yield('styles')
 </head>
 
 <body>
@@ -130,8 +131,10 @@
   <!-- Optional JS -->
   <script src="{{ asset('vendor/chart.js/dist/Chart.min.js') }}"></script>
   <script src="{{ asset('vendor/chart.js/dist/Chart.extension.js') }}"></script>
+  <!--el script considerado en "create.blade" se debe de incluir antes de ser llamado por el script 'js/
+    argon.js?v=1.0.0'-->
+  @yield('scripts')
   <!-- Argon JS -->
   <script src="{{ asset('js/argon.js?v=1.0.0') }}"></script>
 </body>
-
 </html>

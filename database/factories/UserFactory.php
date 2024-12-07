@@ -23,10 +23,19 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => Str::random(10),
-//revisar documentacion de laravle, el primer valor asigna la cantidad de dígitos y el segundo confirma si es necesario que se cumpla la cantidad de dígitos
+        //revisar documentacion de laravle, el primer valor asigna la cantidad de dígitos 
+        //y el segundo confirma si es necesario que se cumpla la cantidad de dígitos
         'dni' => $faker->randomNumber(8, true),
         'address' => $faker->address,
         'phone' => $faker->e164PhoneNumber,
         'role' => $faker->randomElement(['patient', 'doctor'])
     ];
 });
+
+$factory->state(App\User::class, 'patient', [
+    'role' => 'patient',
+]);
+
+$factory->state(App\User::class, 'doctor', [
+    'role' => 'doctor',
+]);
