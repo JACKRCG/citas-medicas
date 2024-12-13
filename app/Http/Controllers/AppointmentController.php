@@ -139,12 +139,14 @@ class AppointmentController extends Controller
         Appointment::create($data);
 
         $notification = 'La cita se ha registrado correctamente';
-        return back()->with(compact('notification'));
+
+        return redirect('/appointments')->with(compact('notification'));
+        //return back()->with(compact('notification'));
         //return redirect('/appointments');
     }
 
     public function showCancelForm(Appointment $appointment)
-    {
+    {//agregado el o "Reservada"
         if($appointment->status == 'Confirmada'){
             $role = auth()->user()->role;
             return view('appointments.cancel', compact('appointment', 'role'));
@@ -158,7 +160,7 @@ class AppointmentController extends Controller
         if($request->has('justification')){
             $cancellation = new CancelledAppointment();
             $cancellation->justification = $request->input('justification');
-            $cancellation->cancelled_by = auth()->id();
+            $cancellation->cancelled_by_id = auth()->id();
             //se busca desde el appointment, en sus detalles de cancelación 
             //y se guarda cancellation, se guarda desde la "RELACIÓN entre ambas tablas"
             //esto es equivalente a:
@@ -166,6 +168,7 @@ class AppointmentController extends Controller
             //  $cancellation->save();
             $appointment->cancellation()->save($cancellation);
         }
+
         $appointment->status = 'Cancelada';
         $appointment->save();  //update
         $notification = 'La cita se ha cancelado correctamente.';

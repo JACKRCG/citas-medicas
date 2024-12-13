@@ -1,6 +1,6 @@
 <?php namespace App\Services;
 
-use App\WorkDay;
+use App\Workday;
 use App\Interfaces\ScheduleServiceInterface;
 use Carbon\Carbon;
 use App\Appointment;
@@ -21,7 +21,7 @@ class ScheduleService implements ScheduleServiceInterface
 
 	public function getAvailableIntervals($date, $doctorId)
 	{
-		$workDay = WorkDay::where('active', true)
+		$workDay = Workday::where('active', true)
             ->where('day', $this->getDayFromDate($date))
             ->where('user_id', $doctorId)
             ->first([

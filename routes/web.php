@@ -62,7 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/appointments', 'AppointmentController@index');
     Route::get('/appointments/{appointment}', 'AppointmentController@show');
     //para cancelar una cita despues de ser aprobada
-    Route::get('/appointments/{appointment}/cancel', 'AppointmentController@ShowCancelForm');
+    //Route::get('/appointments/{appointment}/cancel', 'AppointmentController@ShowCancelForm');//antes
+    Route::get('/appointments/{appointment}/cancel', 'AppointmentController@showCancelForm');
     //para cancelar una cita antes de ser aprobada
     Route::post('/appointments/{appointment}/cancel', 'AppointmentController@postCancel');
     //para confirmar una cita

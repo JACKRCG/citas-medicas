@@ -45,29 +45,26 @@
 	        		Ver
 		        </a>
 	        @endif 
+
 	      	@if ($role == 'doctor' || $role == 'admin')	       
 				<form action="{{ url('/appointments/'.$appointment->id.'/confirm') }}" method="POST" class="d-inline-block">
 					@csrf
 
-					<button class="btn btn-sm btn-success" data-toggle="tooltip" title="Confirmar cita" type="submit">
+					<button class="btn btn-sm btn-success" data-toggle="tooltip" 
+						title="Confirmar cita" type="submit">
 						<i class="ni ni-check-bold"></i>
 					</button>
 				</form>
-				<a href="{{ url('/appointments/'.$appointment->id.'/cancel') }}" class="btn btn-sm btn-danger">
-					<i class="ni ni-fat-delete"></i>
-				</a>
+			@endif	
 
-			@else  {{--patient--}}
-				<form action="{{ url('/appointments/'.$appointment->id.'/cancel') }}" method="POST" 
+			<form action="{{ url('/appointments/'.$appointment->id.'/cancel') }}" method="POST" 
 					class="d-inline-block">
-	        	@csrf
+	        		@csrf
 
 				<button class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancelar cita" type="submit">
 					<i class="ni ni-fat-delete"></i>
 				</button>
-	        </form>
-			@endif	      	 
-	        
+	        </form>      	 
 	      </td>
 	    </tr>
 	    @endforeach

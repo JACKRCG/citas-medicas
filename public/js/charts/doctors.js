@@ -8,7 +8,7 @@ const chart = Highcharts.chart('container', {
     },
     subtitle: {
         text:
-            'Source: <a target="_blank" ' +
+            'con mas citas atendidas: <a target="_blank" ' +
             'href="#"></a>',
         align: 'center'
     },

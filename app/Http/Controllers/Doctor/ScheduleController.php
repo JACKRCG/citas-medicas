@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\WorkDay;
+use App\Workday;
 //importamos desde su packete correspondiente
 use Carbon\Carbon;
 
@@ -21,7 +21,7 @@ class ScheduleController extends Controller
     public function edit()
     {
         //obtiene todos los datos del doctor que ha iniciado la sesion para poder ver su horario
-        $workDays = WorkDay::where('user_id', auth()->id())->get();
+        $workDays = Workday::where('user_id', auth()->id())->get();
 
         if (count($workDays) > 0) {
             $workDays->map(function ($workDay) {
@@ -34,7 +34,7 @@ class ScheduleController extends Controller
         } else {
             $workDays = collect();
             for ($i=0; $i<7; ++$i)
-                $workDays->push(new WorkDay());
+                $workDays->push(new Workday());
         }
         
         
@@ -66,7 +66,7 @@ class ScheduleController extends Controller
             }
 
             //losvalores day y user_id determinan la busqueda para poder determinar si se creará o actualizarán datos
-            WorkDay::updateOrCreate([
+            Workday::updateOrCreate([
                 'day' => $i,
                 'user_id' => auth()->id()
             ],[ //active es probable que no exista// active contiene los dias que estan activos

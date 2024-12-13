@@ -49,7 +49,8 @@
 	        		Ver
 		        </a>
 	        @endif    
-	        <a class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancelar cita" href="{{ url('/appointments/'.$appointment->id.'/cancel') }}">
+	        <a class="btn btn-sm btn-danger" data-toggle="tooltip" title="Cancelar cita" 
+	        	href="{{ url('/appointments/'.$appointment->id.'/cancel') }}">
 	        		Cancelar
 	        </a>
 	      </td>
