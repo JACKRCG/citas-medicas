@@ -49,7 +49,8 @@ Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {
     Route::post('/schedule', 'ScheduleController@store');
     
 });
-
+//Este middleware requiere que un usuario inicie sesión 
+//para poder navegar en las demás rutas, por lo que se puede decir que están protegidas
 Route::middleware('auth')->group(function () {
 
     Route::get('/appointments/create', 'AppointmentController@create');
@@ -69,9 +70,7 @@ Route::middleware('auth')->group(function () {
     //para confirmar una cita
     Route::post('/appointments/{appointment}/confirm', 'AppointmentController@postConfirm');
     
-    //JSON
-    Route::get('/specialties/{specialty}/doctors', 'Api\SpecialtyController@doctors');
-    Route::get('/schedule/hours', 'Api\ScheduleController@hours');
+    
 
 });
 
