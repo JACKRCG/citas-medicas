@@ -16,6 +16,14 @@ class Appointment extends Model
         'scheduled_time',
         'type'
     ];
+    
+    protected $hidden = [
+        'specialty_id', 'doctor_id', 'scheduled_time'
+    ];
+
+    protected $appends = [
+        'scheduled_time_12'
+    ];
 
     //este método nos permitira acceder a una especialidad desde un appointment
     //indicamos el tipo de relación

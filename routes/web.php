@@ -43,8 +43,7 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function () {
 });
 
 
-Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {
-    
+Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {    
     Route::get('/schedule', 'ScheduleController@edit');
     Route::post('/schedule', 'ScheduleController@store');
     
@@ -52,7 +51,6 @@ Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {
 //Este middleware requiere que un usuario inicie sesión 
 //para poder navegar en las demás rutas, por lo que se puede decir que están protegidas
 Route::middleware('auth')->group(function () {
-
     Route::get('/appointments/create', 'AppointmentController@create');
     Route::post('/appointments', 'AppointmentController@store');
 
@@ -68,9 +66,7 @@ Route::middleware('auth')->group(function () {
     //para cancelar una cita antes de ser aprobada
     Route::post('/appointments/{appointment}/cancel', 'AppointmentController@postCancel');
     //para confirmar una cita
-    Route::post('/appointments/{appointment}/confirm', 'AppointmentController@postConfirm');
-    
-    
+    Route::post('/appointments/{appointment}/confirm', 'AppointmentController@postConfirm');    
 
 });
 

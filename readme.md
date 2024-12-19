@@ -7,6 +7,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About JWT (Json Web Tockens)
+Se debe de cambiar a "miladrahimi/larajwt" : "2.asterisco" en el archivo composer.json, esto por que tiene 
+la dependencia completa para validar el inicio de sesión con los json web tokens
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

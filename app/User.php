@@ -26,7 +26,7 @@ class User extends Authenticatable
      */
     //variables que no queremos que se muestren en una respuesta
     protected $hidden = [
-        'password', 'remember_token', 'pivot', 
+        'password', 'remember_token', 'pivot',
         'email_verified_at', 'created_at', 'updated_at'
     ];
 
@@ -58,22 +58,22 @@ class User extends Authenticatable
     {
         return $query->where('role', 'doctor');
     }
-//para ver el total de citas como doctor
+    //para ver el total de citas como doctor
     public function asDoctorAppointments()
     {
         return $this->hasMany(Appointment::class, 'doctor_id');
     }
-//para ver citas atendidas
+    //para ver citas atendidas
     public function attendedAppointments()
     {
         return $this->asDoctorAppointments()->where('status', 'Atendida');
     }
-//para ver citas atendidas
+    //para ver citas atendidas
     public function cancelledAppointments()
     {
         return $this->asDoctorAppointments()->where('status', 'Cancelada');
     }
-//para ver el total de citas como paciente
+    //para ver el total de citas como paciente
     public function asPatientAppointments()
     {
         return $this->hasMany(Appointment::class, 'patient_id');
