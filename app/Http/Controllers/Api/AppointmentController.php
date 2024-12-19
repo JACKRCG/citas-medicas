@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Appointment;
 
+use App\Http\Requests\StoreAppointment;
 
 class AppointmentController extends Controller
 {

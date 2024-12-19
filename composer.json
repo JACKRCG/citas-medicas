@@ -11,9 +11,10 @@
         "php": "^7.1.3",
         "doctrine/dbal": "^2.13",
         "fideloper/proxy": "^4.0",
-        "jcarlosr/larajwt": "2.5.0",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "lcobucci/jwt": "3.3.3",
+        "miladrahimi/larajwt": "2.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

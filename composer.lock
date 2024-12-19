@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d33a8d6bcca39c4965389c4ab5ecac9",
+    "content-hash": "e8153526494ee7067dc0678a547fd09c",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1193,73 +1193,6 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
-            "name": "jcarlosr/larajwt",
-            "version": "v2.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/JCarlosR/larajwt.git",
-                "reference": "d71050ee12327a78829bcfd826acdbbf9a56ff5a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/JCarlosR/larajwt/zipball/d71050ee12327a78829bcfd826acdbbf9a56ff5a",
-                "reference": "d71050ee12327a78829bcfd826acdbbf9a56ff5a",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^5.5|^6|^7|^8",
-                "lcobucci/jwt": "3.3.3",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "~1.0",
-                "orchestra/testbench": "^3.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "JwtAuth": "MiladRahimi\\LaraJwt\\Facades\\JwtAuth"
-                    },
-                    "providers": [
-                        "MiladRahimi\\LaraJwt\\Providers\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "MiladRahimi\\LaraJwt\\": "src/MiladRahimi/LaraJwt/",
-                    "MiladRahimi\\LaraJwtTests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Milad Rahimi",
-                    "email": "info@miladrahimi.com",
-                    "homepage": "http://miladrahimi.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "JWT authentication tools and guard for Laravel projects",
-            "homepage": "https://github.com/JCarlosR/larajwt",
-            "keywords": [
-                "Authentication",
-                "api",
-                "guard",
-                "jwt",
-                "laravel",
-                "rest"
-            ],
-            "support": {
-                "source": "https://github.com/JCarlosR/larajwt/issues"
-            },
-            "time": "2021-08-30T21:20:21+00:00"
-        },
-        {
             "name": "kylekatarnls/update-helper",
             "version": "1.2.1",
             "source": {
@@ -1625,13 +1558,13 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Tinker\\TinkerServiceProvider"
                     ]
+                },
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -1880,6 +1813,76 @@
                 }
             ],
             "time": "2023-08-03T07:14:11+00:00"
+        },
+        {
+            "name": "miladrahimi/larajwt",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/miladrahimi/larajwt.git",
+                "reference": "5b35fe572be772e0df96a34b10bb7a2216370bd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/miladrahimi/larajwt/zipball/5b35fe572be772e0df96a34b10bb7a2216370bd4",
+                "reference": "5b35fe572be772e0df96a34b10bb7a2216370bd4",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.5",
+                "lcobucci/jwt": "^3.2",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MiladRahimi\\LaraJwt\\Providers\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "JwtAuth": "MiladRahimi\\LaraJwt\\Facades\\JwtAuth"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MiladRahimi\\LaraJwt\\": "src/MiladRahimi/LaraJwt/",
+                    "MiladRahimi\\LaraJwtTests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milad Rahimi",
+                    "email": "info@miladrahimi.com",
+                    "homepage": "http://miladrahimi.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "JWT authentication tools and guard for Laravel projects",
+            "homepage": "http://miladrahimi.github.io/larajwt",
+            "keywords": [
+                "Authentication",
+                "api",
+                "guard",
+                "jwt",
+                "laravel",
+                "rest"
+            ],
+            "support": {
+                "email": "info@miladrahimi.com",
+                "issues": "https://github.com/miladrahimi/larajwt/issues",
+                "source": "https://github.com/miladrahimi/larajwt/issues"
+            },
+            "abandoned": true,
+            "time": "2018-03-26T13:53:57+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2136,16 +2139,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.19.2",
+            "version": "v4.19.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "0ed4c8949a32986043e977dbe14776c14d644c45"
+                "reference": "715f4d25e225bc47b293a8b997fe6ce99bf987d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/0ed4c8949a32986043e977dbe14776c14d644c45",
-                "reference": "0ed4c8949a32986043e977dbe14776c14d644c45",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/715f4d25e225bc47b293a8b997fe6ce99bf987d2",
+                "reference": "715f4d25e225bc47b293a8b997fe6ce99bf987d2",
                 "shasum": ""
             },
             "require": {
@@ -2154,7 +2157,7 @@
             },
             "require-dev": {
                 "ircmaxell/php-yacc": "^0.0.7",
-                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -2186,9 +2189,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.19.2"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.19.4"
             },
-            "time": "2024-09-17T19:36:00+00:00"
+            "time": "2024-09-29T15:01:53+00:00"
         },
         {
             "name": "opis/closure",
@@ -4062,8 +4065,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -5415,26 +5418,26 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.15.4",
+            "version": "2.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "a139776fa3f5985a50b509f2a02ff0f709d2a546"
+                "reference": "befcdc0e5dce67252aa6322d82424be928214fa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/a139776fa3f5985a50b509f2a02ff0f709d2a546",
-                "reference": "a139776fa3f5985a50b509f2a02ff0f709d2a546",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/befcdc0e5dce67252aa6322d82424be928214fa2",
+                "reference": "befcdc0e5dce67252aa6322d82424be928214fa2",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0 || ^8.0",
+                "php": "^7.1 || ^8.0",
                 "psr/log": "^1.0.1 || ^2.0 || ^3.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9 || ^1.0",
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.3",
-                "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0 || ^5.0"
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.8 || ^9.3.3",
+                "symfony/var-dumper": "^4.0 || ^5.0"
             },
             "suggest": {
                 "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
@@ -5474,7 +5477,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.15.4"
+                "source": "https://github.com/filp/whoops/tree/2.16.0"
             },
             "funding": [
                 {
@@ -5482,7 +5485,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-03T12:00:00+00:00"
+            "time": "2024-09-25T12:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -5661,16 +5664,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.12.0",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c"
+                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
-                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/123267b2c49fbf30d78a7b2d333f6be754b94845",
+                "reference": "123267b2c49fbf30d78a7b2d333f6be754b94845",
                 "shasum": ""
             },
             "require": {
@@ -5709,7 +5712,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.0"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.1"
             },
             "funding": [
                 {
@@ -5717,7 +5720,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-12T14:39:25+00:00"
+            "time": "2024-11-08T17:47:46+00:00"
         },
         {
             "name": "nunomaduro/collision",
@@ -6059,26 +6062,27 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.19.0",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "67a759e7d8746d501c41536ba40cd9c0a07d6a87"
+                "reference": "a0165c648cab6a80311c74ffc708a07bb53ecc93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/67a759e7d8746d501c41536ba40cd9c0a07d6a87",
-                "reference": "67a759e7d8746d501c41536ba40cd9c0a07d6a87",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/a0165c648cab6a80311c74ffc708a07bb53ecc93",
+                "reference": "a0165c648cab6a80311c74ffc708a07bb53ecc93",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.2 || ^2.0",
-                "php": "^7.2 || 8.0.* || 8.1.* || 8.2.* || 8.3.*",
+                "php": "^7.2 || 8.0.* || 8.1.* || 8.2.* || 8.3.* || 8.4.*",
                 "phpdocumentor/reflection-docblock": "^5.2",
                 "sebastian/comparator": "^3.0 || ^4.0 || ^5.0 || ^6.0",
                 "sebastian/recursion-context": "^3.0 || ^4.0 || ^5.0 || ^6.0"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.40",
                 "phpspec/phpspec": "^6.0 || ^7.0",
                 "phpstan/phpstan": "^1.9",
                 "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0"
@@ -6122,9 +6126,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpspec/prophecy/issues",
-                "source": "https://github.com/phpspec/prophecy/tree/v1.19.0"
+                "source": "https://github.com/phpspec/prophecy/tree/v1.20.0"
             },
-            "time": "2024-02-29T11:52:51+00:00"
+            "time": "2024-11-19T13:12:41+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
