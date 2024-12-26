@@ -40,6 +40,9 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function () {
     //Gráficos o Charts (Barras o Columnas)
     Route::get('/charts/doctors/column', 'ChartController@doctors');
     Route::get('/charts/doctors/column/data', 'ChartController@doctorsJson');
+    
+    // FCM (Firebase Cloud Messaging)
+    Route::post('/fcm/send', 'FirebaseController@sendAll');
 });
 
 

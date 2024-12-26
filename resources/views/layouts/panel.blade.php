@@ -126,6 +126,29 @@
   </div>
   <!-- Argon Scripts -->
   <!-- Core -->
+  
+  <script>
+    const imageUrlInput = document.getElementById('imageUrl');
+    const previewImage = document.getElementById('previewImage');
+
+    // Función para actualizar la previsualización
+    function updatePreview() {
+      const imageUrl = imageUrlInput.value;
+
+      if (imageUrl) {
+        previewImage.src = imageUrl;
+        previewImage.style.display = 'block';
+      } else {
+        previewImage.style.display = 'none';
+      }
+    }
+
+    // Escuchar el evento "input" en el campo de entrada
+    imageUrlInput.addEventListener('input', updatePreview);
+
+    // Mostrar la previsualización inicial al cargar la página
+    updatePreview();
+  </script>
   <script src="{{ asset('vendor/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   <!-- Optional JS -->
