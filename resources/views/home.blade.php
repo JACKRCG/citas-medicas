@@ -48,11 +48,12 @@
           <div class="form-group">
             <label for="imageUrl">Imagen&nbsp;</label><span>(Opcional)</span>
             <input value="https://www.clinicatusalud.pe/img/logo.png" type="text" class="form-control" name="" id="imageUrl" required>
-            <div id="previewContainer" style="margin-top: 20px; display: flex; justify-content: center; align-items: center; height: 175px; border: 2px dashed #ccc;">
+            <div id="previewContainer" style="margin-top: 20px; display: flex; justify-content: center; align-items: center; height: 150px; border: 2px dashed #ccc;">
               <img id="previewImage" src="" alt="Previsualización" style="max-width: 100%; max-height: 100%; display: none;">
             </div>
           </div>
-          <button class="btn btn-primary">Enviar Notificación</button>            
+          <button class="btn btn-primary" type="submit" disabled>Enviar Notificación</button> 
+          <a class="btn btn-danger" target="_blank" href="https://console.firebase.google.com/u/1/project/mis-citas-3708d/messaging" type="button">Enviar Notificación desde FCM</a>            
         </form>
       </div>
     </div>
