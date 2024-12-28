@@ -63,8 +63,9 @@
       <div class="card-header bg-transparent">
         <div class="row align-items-center">
           <div class="col">
-            <h6 class="text-uppercase text-muted ls-1 mb-1">Total de Citas</h6>
+            <h6 class="text-uppercase text-muted ls-1 mb-1">Total de Citas (Confirmadas y Atendidas)</h6>
             <h2 class="mb-0">Según el día de la semana</h2>
+            <h5 class="mt-2 text-muted">Actualización de Caché (7 días)</h5>
           </div>
         </div>
       </div>
@@ -79,4 +80,11 @@
   @endif
 </div>
 
+@endsection
+
+@section('scripts')
+  <script>
+    const appointmentsByDay = @json($appointmentsByDay);
+  </script>
+  <script src="{{ asset('js/charts/home.js') }}"></script>
 @endsection
