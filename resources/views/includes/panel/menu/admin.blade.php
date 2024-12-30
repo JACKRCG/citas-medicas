@@ -4,6 +4,11 @@
   </a>
 </li>
 <li class="nav-item">
+  <a class="nav-link" href="/profile">
+    <i class="ni ni-circle-08 text-info"></i> Mis datos
+  </a>
+</li>
+<li class="nav-item">
   <a class="nav-link" href="/specialties">
     <i class="ni ni-planet text-blue"></i> Especialidades
   </a>

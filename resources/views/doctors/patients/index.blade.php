@@ -6,11 +6,8 @@
 			<div class="card-header border-0">
 				<div class="row align-items-center">
 				  <div class="col">
-					<h3 class="mb-0">Pacientes</h3>   
-				  </div>
-					<div class="col text-right">
-				    <a href="{{ url('patients/create') }}" class="btn btn-sm btn-success">Nuevo Paciente</a>
-				  </div>		  
+						<h3 class="mb-0">Mis pacientes</h3>
+				  </div>	  
 				</div>
 			</div>
 			@if(session('notification'))
@@ -32,7 +29,7 @@
 	              <th scope="col">Nombre</th>
 	              <th scope="col">E-mail</th>
 	              <th scope="col">DNI</th>
-				  <th scope="col">Opciones</th>
+	              <th scope="col">Teléfono</th>       
 	            </tr>
 	          </thead>
 	          <tbody>
@@ -46,15 +43,10 @@
 	              </td>
 	              <td>
 	                {{ $patient->dni }}
-	              </td>
-					<td>	                
-		                <form action="{{ url('/patients/'.$patient->id) }}" method="POST">
-		                	@csrf
-		                	@method('DELETE')
-		                	<a href="{{ url('/patients/'.$patient->id.'/edit') }}" class="btn btn-sm btn-primary">Editar</a>
-							<button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
-		                </form>
-	              	</td>	 	              
+	              </td>	 
+	              <td>
+	                {{ $patient->phone }}
+	              </td>		              
 	            </tr>
 	            @endforeach
 	          </tbody>

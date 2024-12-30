@@ -36,6 +36,9 @@ class User extends Authenticatable
         return self::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'dni' => $data['dni'],
+            'phone' => $data['phone'],
+            'address' => $data['address'],
             'password' => Hash::make($data['password']),
             'role' => 'patient'
         ]);

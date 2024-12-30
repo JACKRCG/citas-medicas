@@ -25,7 +25,7 @@ class AppointmentController extends Controller
             $confirmedAppointments = Appointment::where('status', 'Confirmada')
                 ->paginate(10);
             $oldAppointments = Appointment::whereIn('status', ['Atendida', 'Cancelada'])
-                ->paginate(10);
+                ->orderByDesc('created_at')->paginate(10);
         } elseif ($role == 'doctor'){
             //doctor
             $pendingAppointments = Appointment::where('status', 'Reservada')
@@ -36,7 +36,7 @@ class AppointmentController extends Controller
                 ->paginate(10);
             $oldAppointments = Appointment::whereIn('status', ['Atendida', 'Cancelada'])
                 ->where('doctor_id', auth()->id())
-                ->paginate(10);
+                ->orderByDesc('created_at')->paginate(10);
         } elseif ($role == 'patient') {
             //patient
             $pendingAppointments = Appointment::where('status', 'Reservada')
@@ -47,7 +47,7 @@ class AppointmentController extends Controller
                 ->paginate(10);
             $oldAppointments = Appointment::whereIn('status', ['Atendida', 'Cancelada'])
                 ->where('patient_id', auth()->id())
-                ->paginate(10);
+                ->orderByDesc('created_at')->paginate(10);
         }        
 
         return view('appointments.index', 

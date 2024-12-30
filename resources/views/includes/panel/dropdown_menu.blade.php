@@ -10,10 +10,22 @@
     <i class="ni ni-settings-gear-65"></i>
     <span>Configuración</span>
   </a>
-  <a href="/appointments" class="dropdown-item">
-    <i class="ni ni-calendar-grid-58"></i>
-    <span>Mis citas</span>
-  </a>
+  @if ($role == 'patient')
+    <a href="/appointments" class="dropdown-item">
+      <i class="ni ni-calendar-grid-58"></i>
+      <span>Mis citas</span>
+    </a>
+  @elseif ($role == 'doctor')
+    <a href="/appointments" class="dropdown-item">
+      <i class="ni ni-calendar-grid-58"></i>
+      <span>Mis citas</span>
+    </a>
+  @elseif ($role == 'admin')
+    <a href="/appointments" class="dropdown-item">
+      <i class="ni ni-calendar-grid-58"></i>
+      <span>Citas Médicas</span>
+    </a>
+  @endif
   <a href="#" class="dropdown-item">
     <i class="ni ni-support-16"></i>
     <span>Ayuda</span>
