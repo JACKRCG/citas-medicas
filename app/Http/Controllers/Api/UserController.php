@@ -24,6 +24,7 @@ class UserController extends Controller
         $user->address = $request->address;
         $user->save();
 
-        JwtAuth::clearCache($user);
+        //la información en caché se eliminará "ACTUALIZARÁ" par aque los datos se muestren actualizados al hacer una petición GET
+        JwtAuth::clearCache($user);  
     }
 }

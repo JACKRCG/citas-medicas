@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         //definición de propios middleware
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'doctor' => \App\Http\Middleware\DoctorMiddleware::class,
+        'phone' => \App\Http\Middleware\PhoneMiddleware::class
     ];
 
     /**

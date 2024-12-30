@@ -54,12 +54,16 @@ Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {
 //Este middleware requiere que un usuario inicie sesión 
 //para poder navegar en las demás rutas, por lo que se puede decir que están protegidas
 Route::middleware('auth')->group(function () {
-    Route::get('/appointments/create', 'AppointmentController@create');
-    Route::post('/appointments', 'AppointmentController@store');
 
+    Route::get('/profile', 'UserController@edit');
+    Route::post('/profile', 'UserController@update');
     /*
     /patient/appointments
     */
+    Route::middleware('phone')->group(function () { 
+        Route::get('/appointments/create', 'AppointmentController@create');//para evitar colosiones con la ruta de abajo
+        Route::post('/appointments', 'AppointmentController@store');
+    });
 
     Route::get('/appointments', 'AppointmentController@index');
     Route::get('/appointments/{appointment}', 'AppointmentController@show');
