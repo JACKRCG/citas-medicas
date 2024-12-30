@@ -79,14 +79,4 @@ class Appointment extends Model
         return self::create($data);
     } 
 
-    //nueva función
-    /*
-    public static function filterByDoctorAndStatus($doctorId, $statuses)
-    {
-        return self::where('doctor_id', $doctorId)
-            ->whereIn('status', $statuses)
-            ->with('patient')
-            ->orderByDesc('created_at');
-    }*/
-
 }

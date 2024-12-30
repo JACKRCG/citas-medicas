@@ -22,6 +22,7 @@ class UserController extends Controller
         $user->name = $request->name; // $request->input('name') //se actualiza con la infomraicón que viene con el $request-
         $user->phone = $request->phone;
         $user->address = $request->address;
+        $user->dni = $request->dni;
         $user->save();
 
         //la información en caché se eliminará "ACTUALIZARÁ" par aque los datos se muestren actualizados al hacer una petición GET
