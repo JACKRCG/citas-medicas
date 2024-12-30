@@ -22,16 +22,16 @@
 			</div>	
 			@endif
 			<div class="card-body">
-				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-				  <li class="nav-item">
+				<ul class="nav nav-pills mb-2" id="pills-tab" role="tablist">
+				  <li class="nav-item m-1">
 				    <a class="nav-link active" data-toggle="pill" href="#confirmed-appointments" 
 				    role="tab" aria-selected="true">Mis próximas Citas</a>
 				  </li>
-				  <li class="nav-item">
+				  <li class="nav-item m-1">
 				    <a class="nav-link" data-toggle="pill" href="#pending-appointments" 
 				    role="tab">Citas por confirmar</a>
 				  </li>
-				  <li class="nav-item">
+				  <li class="nav-item m-1">
 				    <a class="nav-link" data-toggle="pill" href="#old-appointments" 
 				    role="tab">Historial de Citas</a>
 				  </li>

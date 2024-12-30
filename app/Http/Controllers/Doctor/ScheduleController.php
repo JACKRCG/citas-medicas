@@ -40,7 +40,9 @@ class ScheduleController extends Controller
         
         //dd($workDays->toArray());
         $days = $this->days;
-        return view('schedule', compact('workDays','days'));
+
+        $role = auth()->user()->role;
+        return view('schedule', compact('workDays','days', 'role'));
     }
 
     public function store(Request $request)

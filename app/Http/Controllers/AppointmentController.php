@@ -84,8 +84,9 @@ class AppointmentController extends Controller
         } else {
             $intervals = null;
         }
+        $role = auth()->user()->role;
 
-        return view('appointments.create', compact('specialties','doctors', 'intervals'));
+        return view('appointments.create', compact('specialties','doctors', 'intervals', 'role'));
     }
 
     public function store(StoreAppointment $request)

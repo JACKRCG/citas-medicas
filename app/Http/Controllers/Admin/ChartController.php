@@ -29,7 +29,9 @@ class ChartController extends Controller
             $counts[$index] = $monthlyCount['count'];
         }
 
-        return view('charts.appointments', compact('counts'));
+        $role = auth()->user()->role;
+
+        return view('charts.appointments', compact('counts', 'role'));
     }
 
     public function doctors()
@@ -37,8 +39,10 @@ class ChartController extends Controller
         $now = Carbon::now();
         $end = $now->format('Y-m-d');
         $start = $now->subYear()->format('Y-m-d'); //inicio desde hace un año
+
+        $role = auth()->user()->role;
         
-        return view('charts.doctors', compact('start', 'end'));
+        return view('charts.doctors', compact('start', 'end', 'role'));
     }
 
     public function doctorsJson(Request $request)

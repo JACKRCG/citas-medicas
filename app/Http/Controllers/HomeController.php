@@ -53,7 +53,10 @@ class HomeController extends Controller
         
     
         // dd($appointmentsByDay);
-        return view('home', compact('appointmentsByDay'));
+
+        $role = auth()->user()->role;
+
+        return view('home', compact('appointmentsByDay', 'role'));
         //Para volver a actualizar se usa el comando "php artisan cache:clear" edesde la consola de comandos
     }
 }

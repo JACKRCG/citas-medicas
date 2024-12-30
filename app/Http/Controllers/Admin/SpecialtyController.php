@@ -18,12 +18,14 @@ class SpecialtyController extends Controller
     public function index()
     {
         $specialties = Specialty::all();
-        return view('specialties.index', compact('specialties'));
+        $role = auth()->user()->role;
+        return view('specialties.index', compact('specialties', 'role'));
     }
 
     public function create()
     {
-        return view('specialties.create');
+        $role = auth()->user()->role;
+        return view('specialties.create', compact('role'));
     }
     //función para validar tanto en post y en put
     private function performValidation(Request $request)
@@ -59,7 +61,8 @@ class SpecialtyController extends Controller
     //para devolver una vista
     public function edit(Specialty $specialty)
     {
-        return view('specialties.edit', compact('specialty'));
+        $role = auth()->user()->role;
+        return view('specialties.edit', compact('specialty', 'role'));
     }
 
     public function update(Request $request, Specialty $specialty)

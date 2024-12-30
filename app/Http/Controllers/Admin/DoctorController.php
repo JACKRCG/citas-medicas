@@ -19,7 +19,9 @@ class DoctorController extends Controller
     {
         //la funcion de doctors se enceuntra en "User.php"
         $doctors = User::doctors()->get();
-        return view('doctors.index', compact('doctors'));
+
+        $role = auth()->user()->role;
+        return view('doctors.index', compact('doctors', 'role'));
     }
 
     /**
@@ -31,7 +33,8 @@ class DoctorController extends Controller
     {
         //pasamos las especialidades a la vista doctor.create
         $specialties = Specialty::all();
-        return view('doctors.create', compact('specialties'));
+        $role = auth()->user()->role;
+        return view('doctors.create', compact('specialties', 'role'));
     }
 
     /**
@@ -89,7 +92,9 @@ class DoctorController extends Controller
         $doctor = User::doctors()->findOrFail($id);
         $specialties = Specialty::all();
         $specialty_ids = $doctor->specialties()->pluck('specialties.id');
-        return view('doctors.edit', compact('doctor', 'specialties', 'specialty_ids'));
+
+        $role = auth()->user()->role;
+        return view('doctors.edit', compact('doctor', 'specialties', 'specialty_ids', 'role'));
     }
 
     /**

@@ -9,7 +9,8 @@ class UserController extends Controller
     public function edit()
     {
         $user = auth()->user();
-        return view('profile', compact('user')); // $user
+        $role = auth()->user()->role;
+        return view('profile', compact('user', 'role')); // $user
     }
 
     public function update(Request $request)

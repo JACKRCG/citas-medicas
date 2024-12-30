@@ -84,7 +84,18 @@
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Panel de Administración</a>
+
+        <!-- <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Panel de 
+        Administración</a> -->
+        
+        @if ($role == 'patient')
+          <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Panel de Paciente</a>
+        @elseif ($role == 'doctor')
+          <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Panel de Doctor</a>
+        @elseif ($role == 'admin')
+          <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Panel de Administración</a>
+        @endif
+
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">

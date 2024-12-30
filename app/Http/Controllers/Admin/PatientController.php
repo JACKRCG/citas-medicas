@@ -19,7 +19,9 @@ class PatientController extends Controller
         //la funcion de patients se enceuntra en "User.php"
         //para paginar en el frontend usamos "paginate(valor de filas a mostrar en la tabla)"
         $patients = User::patients()->paginate(10);
-        return view('patients.index', compact('patients'));
+
+        $role = auth()->user()->role;
+        return view('patients.index', compact('patients', 'role'));
     }
 
     /**
@@ -30,7 +32,8 @@ class PatientController extends Controller
     public function create()
     {
         //
-        return view('patients.create');
+        $role = auth()->user()->role;
+        return view('patients.create', compact('role'));
     }
 
     /**
@@ -76,7 +79,8 @@ class PatientController extends Controller
 
     public function edit(User $patient)
     {
-        return view('patients.edit', compact('patient'));
+        $role = auth()->user()->role;
+        return view('patients.edit', compact('patient', 'role'));
     }
 
     /**

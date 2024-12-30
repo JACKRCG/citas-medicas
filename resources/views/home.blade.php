@@ -12,7 +12,14 @@
             </div>
           @endif
 
-          Bienvenido
+          @if ($role == 'patient')
+            Bienvenido <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>, puedes reservar una cita desde cualquier lugar desde esta plataforma.
+          @elseif ($role == 'doctor')
+            Bienvenido <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>, puedes gestionar tus citas desde el panel izquierdo.
+          @elseif ($role == 'admin')
+            Bienvenido <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>, puedes gestionar datos del centro médico desde el panel izquierdo .
+          @endif
+
       </div>
     </div>
   </div>
