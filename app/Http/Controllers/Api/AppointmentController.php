@@ -22,7 +22,9 @@ class AppointmentController extends Controller
                 'doctor' => function ($query) {
                     $query->select('id', 'name');
                 }
-            ])
+            ])//quitar los orders si no funcionase
+            ->orderBy('scheduled_date', 'desc') // Ordenar por fecha descendente
+            ->orderBy('scheduled_time', 'desc') // Opcional: ordenar también por hora descendente
             ->get([
                 "id",
                 "description",
